@@ -4,7 +4,7 @@ var
 	fs = require('fs'),
 	optimist = require('optimist')
 		.alias('c', 'cutoff')
-		.default('c', 100)
+		.default('c', undefined)
 		.describe('c', 'the tag usage cutoff')
 		.alias('f', 'filter')
 		.default('f', undefined)
@@ -15,25 +15,25 @@ var
 
 var tags = JSON.parse(fs.readFileSync('tags.json', 'utf8'));
 var keys = Object.keys(tags);
-var interesting = [];
 
 if (args.f)
 {
 	var pattern = new RegExp(args.f, 'i');
 
-	interesting = keys.filter(function(item)
+	keys = keys.filter(function(item)
 	{
 		return (pattern.test(item));
 	});
 }
-else
+
+if (args.c)
 {
-	interesting = keys.filter(function(item)
+	keys = keys.filter(function(item)
 	{
 		return (tags[item] > args.c);
 	});
 
 }
 
-console.log(util.inspect(interesting, {colors: true}));
-console.log(interesting.length);
+console.log(util.inspect(keys, {colors: true}));
+console.log(keys.length);
