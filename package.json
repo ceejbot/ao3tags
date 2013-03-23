@@ -6,7 +6,8 @@
 	"main": "fetchtags.js",
 	"dependencies":
 	{
-		"lodash": "~1.0.1"
+		"lodash": "*",
+		"optimist": "*"
 	},
 	"repository":
 	{
