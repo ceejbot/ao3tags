@@ -1,20 +1,19 @@
 {
-	"name": "ao3tags",
-	"version": "0.0.1",
-	"private": true,
-	"description": "fetch all the canonical freeform tags from ao3",
-	"main": "fetchtags.js",
-	"dependencies":
-	{
-		"lodash": "*",
-		"optimist": "*"
-	},
-	"repository":
-	{
-		"type": "git",
-		"url": "git://github.com/ceejbot/ao3tags.git"
-	},
-	"author": "C J Silverio <ceejceej@gmail.com>",
-	"license": "MIT",
-	"readmeFilename": "README.md"
+  "name": "ao3tags",
+  "description": "fetch all the canonical freeform tags from ao3",
+  "version": "0.0.1",
+  "author": "C J Silverio <ceejceej@gmail.com>",
+  "dependencies": {
+    "jsonfilter": "~1.1.2",
+    "lodash": "~3.3.0",
+    "optimist": "*"
+  },
+  "license": "MIT",
+  "main": "fetchtags.js",
+  "private": true,
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ceejbot/ao3tags.git"
+  }
 }
