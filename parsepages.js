@@ -44,17 +44,23 @@ function processFile(fname, callback)
 
 function continuer()
 {
-
 	if (!files.length)
 	{
 		var keys = Object.keys(tags).sort();
 		console.log('found ' + keys.length + ' tags');
 
-		result = {};
+		var result = {};
 		for (var i = 0; i < keys.length; i++)
 			result[keys[i]] = tags[keys[i]];
 
 		fs.writeFileSync('tags.json', JSON.stringify(result, true, 4));
+
+		result = _.map(keys, function(k)
+		{
+			return { tag: k, count: tags[k] };
+		});
+		fs.writeFileSync('dat-ready.json', JSON.stringify(result, true, 4));
+
 		process.exit(0);
 	}
 
