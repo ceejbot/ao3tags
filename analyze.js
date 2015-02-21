@@ -1,15 +1,19 @@
 #!/usr/bin/env node
 
 var
-	fs = require('fs'),
+	_        = require('lodash'),
+	fs       = require('fs'),
+	util     = require('util'),
 	optimist = require('optimist')
 		.alias('c', 'cutoff')
 		.default('c', undefined)
 		.describe('c', 'the tag usage cutoff')
 		.alias('f', 'filter')
-		.default('f', undefined)
-		.describe('f', 'string or pattern to filter for'),
-	util = require('util'),
+		.default('f', false)
+		.describe('f', 'string or pattern to filter for')
+		.alias('t', 'transform')
+		.boolean('t')
+		.describe('t', 'transform tags to canonical form'),
 	args = optimist.argv
 	;
 
@@ -32,8 +36,26 @@ if (args.c)
 	{
 		return (tags[item] > args.c);
 	});
-
 }
+
+if (args.t)
+{
+	keys = _.map(keys, function(k)
+	{
+		var out = k.toLowerCase();
+
+		var matches = out.match(/(.*)\s+(kink|sex)$/);
+		if (matches)
+		{
+			out = matches[2] + ':' + matches[1];
+		}
+
+		out = out.replace(/\s+/g, '-')
+		return out;
+	});
+}
+
+keys = keys.sort();
 
 console.log(util.inspect(keys, {colors: true}));
 console.log(keys.length);
