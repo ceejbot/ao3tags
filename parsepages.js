@@ -6,9 +6,7 @@ var
 	;
 
 
-var tagpat = /Freeform: <a href="http:\/\/archiveofourown.org\/tags\/.*" class="tag">(.+)<\/a> \((\d+)\)<\/span><\/li>/;
-
-
+var tagpat = /class="tag">(.+)<\/a>.*\((.+)\)/;
 
 var pat = /search\?page=(\d+)/;
 var all = fs.readdirSync('./input');
@@ -16,8 +14,6 @@ var files = _.filter(all, function(item)
 {
 	return pat.test(item);
 });
-
-
 
 var tags = {};
 
