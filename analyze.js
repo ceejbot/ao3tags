@@ -8,7 +8,7 @@ var
 		.describe('c', 'the tag usage cutoff')
 		.alias('f', 'filter')
 		.default('f', undefined)
-		.describe('f', 'string or pattern to filter for')
+		.describe('f', 'string or pattern to filter for'),
 	util = require('util'),
 	args = optimist.argv
 	;
