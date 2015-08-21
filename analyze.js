@@ -51,7 +51,10 @@ if (args.t)
 			out = matches[2] + ':' + matches[1];
 		}
 
-		out = out.replace(/:\s+/g, ':').replace(/\s+/g, '-');
+		out = out.replace(/:\s+/g, ':')
+			.replace(' - ', ':')
+			.replace('--', ':')
+			.replace(/\s+/g, '-');
 		return out;
 	});
 }
@@ -59,4 +62,4 @@ if (args.t)
 keys = keys.sort();
 
 console.log(util.inspect(keys, {colors: true}));
-console.log(keys.length);
+console.log(keys.length, 'tags matching criteria');
