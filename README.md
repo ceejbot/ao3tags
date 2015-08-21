@@ -1,4 +1,10 @@
-Quick and dirty node.js script to fetch all the canonical freeform tags used by the [AO3](http://archiveofourown.org/). Run `./fetchtags.js` then run `parsepages.js` to process the result into json. The output file is `tags.json`. Keys are tags in lexical order; values are the counts reported by AO3.
+Quick and dirty node.js script to fetch all the canonical freeform tags used by the [AO3](http://archiveofourown.org/). Requires a recent [node.js](https://nodejs.org).
+
+To use, clone the repo then run `npm install`.
+
+To collect new data: Run `./fetchtags.js` then run `parsepages.js` to process the result into json. The output file is `tags.json`. Keys are tags in lexical order; values are the counts reported by AO3.
+
+To have fun with the data I've already collected: `./analyze.js --help`.
 
 Working data set as of August 21 2015 is checked in here as `tags.json`.
 
