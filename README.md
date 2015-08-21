@@ -23,6 +23,10 @@ Options:
   --help           Show help                                           [boolean]
 ```
 
+The transform option changes the tags to a no-spaces all-lower-case version with some inconsistencies cleaned up. Needs more work.
+
+`./analyze.js -c 3000` gets you a list of tags that is mostly devoid of fandom-specific tags and content-free tags.
+
 ## LICENSE
 
 ISC.

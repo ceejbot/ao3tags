@@ -45,6 +45,7 @@ if (args.t)
 	keys = _.map(keys, function(k)
 	{
 		var out = k.toLowerCase();
+
 		var matches = out.match(/(.*)\s+(kink|sex)$/);
 		if (matches)
 		{
@@ -53,8 +54,11 @@ if (args.t)
 
 		out = out.replace(/:\s+/g, ':')
 			.replace(' - ', ':')
+			.replace('- ', ':')
 			.replace('--', ':')
+			.replace('alternate universe', 'au')
 			.replace(/\s+/g, '-');
+
 		return out;
 	});
 }
@@ -62,4 +66,4 @@ if (args.t)
 keys = keys.sort();
 
 console.log(util.inspect(keys, {colors: true}));
-console.log(keys.length, 'tags matching criteria');
+console.log(keys.length + ' tags matching criteria');
