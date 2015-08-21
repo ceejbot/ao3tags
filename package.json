@@ -5,8 +5,10 @@
   "author": "C J Silverio <ceejceej@gmail.com>",
   "dependencies": {
     "jsonfilter": "~1.1.2",
-    "lodash": "~3.3.0",
-    "optimist": "*"
+    "lodash": "~3.10.1",
+    "progress-bar": "~0.1.1",
+    "request": "~2.61.0",
+    "yargs": "~3.21.0"
   },
   "license": "MIT",
   "main": "fetchtags.js",

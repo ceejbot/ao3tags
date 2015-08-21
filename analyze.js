@@ -4,7 +4,7 @@ var
 	_        = require('lodash'),
 	fs       = require('fs'),
 	util     = require('util'),
-	optimist = require('optimist')
+	yargs = require('yargs')
 		.alias('c', 'cutoff')
 		.default('c', undefined)
 		.describe('c', 'the tag usage cutoff')
@@ -13,9 +13,11 @@ var
 		.describe('f', 'string or pattern to filter for')
 		.alias('t', 'transform')
 		.boolean('t')
-		.describe('t', 'transform tags to canonical form'),
-	args = optimist.argv
-	;
+		.describe('t', 'transform tags to canonical form')
+		.help('help')
+		.usage('get a list of tags matching specific criteria\nUSAGE: $0 -c 200 -f hurt'),
+	args = yargs.argv
+;
 
 var tags = JSON.parse(fs.readFileSync('tags.json', 'utf8'));
 var keys = Object.keys(tags);
@@ -43,14 +45,13 @@ if (args.t)
 	keys = _.map(keys, function(k)
 	{
 		var out = k.toLowerCase();
-
 		var matches = out.match(/(.*)\s+(kink|sex)$/);
 		if (matches)
 		{
 			out = matches[2] + ':' + matches[1];
 		}
 
-		out = out.replace(/\s+/g, '-')
+		out = out.replace(/\s+/g, '-');
 		return out;
 	});
 }

@@ -3,12 +3,11 @@
 var
 	_ = require('lodash'),
 	fs = require('fs')
-	;
-
+;
 
 var tagpat = /class="tag">(.+)<\/a>.*\((.+)\)/;
 
-var pat = /search\?page=(\d+)/;
+var pat = /page\.(\d+).html/;
 var all = fs.readdirSync('./input');
 var files = _.filter(all, function(item)
 {
