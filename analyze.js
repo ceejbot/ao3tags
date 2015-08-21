@@ -14,6 +14,9 @@ var
 		.alias('t', 'transform')
 		.boolean('t')
 		.describe('t', 'transform tags to canonical form')
+		.alias('s', 'sort')
+		.describe('s', 'sorting criterion: lexical or count')
+		.default('s', 'lexical')
 		.help('help')
 		.usage('get a list of tags matching specific criteria\nUSAGE: $0 -c 200 -f hurt'),
 	args = yargs.argv
@@ -42,6 +45,7 @@ if (args.c)
 
 if (args.t)
 {
+	var newtags = {};
 	keys = _.map(keys, function(k)
 	{
 		var out = k.toLowerCase();
@@ -57,13 +61,30 @@ if (args.t)
 			.replace('- ', ':')
 			.replace('--', ':')
 			.replace('alternate universe', 'au')
-			.replace(/\s+/g, '-');
+			.replace(/\s+/g, '-')
+			.replace('&amp;', '&');
 
+		newtags[out] = tags[k];
 		return out;
 	});
+	tags = newtags;
 }
 
-keys = keys.sort();
+if (args.sort === 'count')
+{
+	keys = keys.sort(function(l, r)
+	{
+		return tags[r] - tags[l];
+	});
+}
+else
+	keys = keys.sort();
 
-console.log(util.inspect(keys, {colors: true}));
+var outtags = {};
+_.each(keys, function(k)
+{
+	outtags[k] = tags[k];
+});
+
+console.log(util.inspect(outtags, {colors: true}));
 console.log(keys.length + ' tags matching criteria');

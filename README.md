@@ -20,18 +20,19 @@ Parses the output of `fetchtags.js` and turns it into a json blob in `tags.json`
 
 ```
 get a list of tags matching specific criteria
-USAGE: analyze.js -c 20 -f hurt
+USAGE: analyze.js -c 200 -f hurt
 
 Options:
   -c, --cutoff     the tag usage cutoff
   -f, --filter     string or pattern to filter for              [default: false]
   -t, --transform  transform tags to canonical form                    [boolean]
+  -s, --sort       sorting criterion: lexical or count      [default: "lexical"]
   --help           Show help                                           [boolean]
 ```
 
 The transform option changes the tags to a no-spaces all-lower-case version with some inconsistencies cleaned up. Needs more work.
 
-`./analyze.js -c 3000` gets you a list of tags that is mostly devoid of fandom-specific tags and content-free tags.
+`./analyze.js -c 3000 --sort count -t` gets you a list of tags that is mostly devoid of fandom-specific & content-free crud, ready to use.
 
 ## LICENSE
 
