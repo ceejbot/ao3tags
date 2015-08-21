@@ -51,7 +51,7 @@ if (args.t)
 			out = matches[2] + ':' + matches[1];
 		}
 
-		out = out.replace(/\s+/g, '-');
+		out = out.replace(/:\s+/g, ':').replace(/\s+/g, '-');
 		return out;
 	});
 }

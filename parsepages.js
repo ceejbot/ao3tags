@@ -7,7 +7,7 @@ var
 
 var tagpat = /class="tag">(.+)<\/a>.*\((.+)\)/;
 
-var pat = /page\.(\d+).html/;
+var pat = /page(\d+)\.html/;
 var all = fs.readdirSync('./input');
 var files = _.filter(all, function(item)
 {
@@ -18,6 +18,7 @@ var tags = {};
 
 function processFile(fname, callback)
 {
+	if (!fname) return;
 	var pmatches = fname.match(pat);
 	var pageno = pmatches[1];
 
