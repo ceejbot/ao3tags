@@ -14,7 +14,7 @@ Fetch the tag listing pages from AO3 for later munging. Fetches one at a time so
 
 ## parsepages.js
 
-Parses the output of `fetchtags.js` and turns it into a json blob in `tags.json`.
+Parses the output of `fetchtags.js` and turns it into a json blob in `tags.json`. It also makes `dat-ready.json` if you want to fiddle with the results with [dat](http://dat-data.com).
 
 ## analyze.js
 
