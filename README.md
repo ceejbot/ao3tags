@@ -6,7 +6,7 @@ To collect new data: Run `./fetchtags.js` then run `parsepages.js` to process th
 
 To have fun with the data I've already collected: `./analyze.js --help`.
 
-Working data set as of August 21 2015 is checked in here as `tags.json`.
+Working data set as of January 19 2016 is checked in here as `tags.json`.
 
 ## fetchtags.js
 
