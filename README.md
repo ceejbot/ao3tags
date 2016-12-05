@@ -20,14 +20,18 @@ Parses the output of `fetchtags.js` and turns it into a json blob in `tags.json`
 
 ```
 get a list of tags matching specific criteria
-USAGE: analyze.js -c 200 -f hurt
 
 Options:
-  -c, --cutoff     the tag usage cutoff
-  -f, --filter     string or pattern to filter for              [default: false]
-  -t, --transform  transform tags to canonical form                    [boolean]
-  -s, --sort       sorting criterion: lexical or count      [default: "lexical"]
+  --cutoff, -c     tags with usage counts lower than this will not be considered
+  --filter, -f     string or pattern to filter for
+  --transform, -t  transform tags to canonical form                    [boolean]
+  --sort, -s       sorting criterion: lexical or count      [default: "lexical"]
+  --json, -j       output results in json format                       [boolean]
   --help           Show help                                           [boolean]
+
+Examples:
+  analyze.js -c 200 -f hurt    filter for tags with "hurt" used at least 200 times
+  analyze.js -c 5000 -s count  show tags used more than 5000 times sorted by usage count
 ```
 
 The transform option changes the tags to a no-spaces all-lower-case version with some inconsistencies cleaned up. Needs more work.

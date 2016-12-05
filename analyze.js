@@ -33,11 +33,11 @@ var
 			alias: 'j',
 			type: 'boolean',
 			description: 'output results in json format',
-			default: false,
 		})
 		.help('help')
 		.usage('get a list of tags matching specific criteria')
 		.example('$0 -c 200 -f hurt', 'filter for tags with "hurt" used at least 200 times')
+		.example('$0 -c 3000 -s count', 'show tags used more than 3000 times sorted by usage count')
 	args = yargs.argv
 ;
 

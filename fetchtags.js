@@ -9,7 +9,7 @@ var
 
 var base = 'https://archiveofourown.org/tags/search?page=%d&query%5Bcanonical%5D=true&query%5Bname%5D=&query%5Btype%5D=Freeform&utf8=%E2%9C%93';
 // var base = 'https://archiveofourown.org/tags/search?page=%d&query[canonical]=true&query[name]=&query[type]=Freeform&utf8=✓';
-var total = 10932;
+var total = 1000;
 var bar = progress.create(process.stdout, 50);
 
 function pad(n)
