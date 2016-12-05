@@ -6,7 +6,7 @@ To collect new data: Run `./fetchtags.js` then run `parsepages.js` to process th
 
 To have fun with the data I've already collected: `./analyze.js --help`.
 
-Working data set as of January 19 2016 is checked in here as `tags.json`.
+Working data set as of December 4 2016 is checked in here as `tags.json`.
 
 ## fetchtags.js
 
@@ -14,7 +14,7 @@ Fetch the tag listing pages from AO3 for later munging. Fetches one at a time so
 
 ## parsepages.js
 
-Parses the output of `fetchtags.js` and turns it into a json blob in `tags.json`. It also makes `dat-ready.json` if you want to fiddle with the results with [dat](http://dat-data.com).
+Parses the output of `fetchtags.js` and turns it into a json blob in `tags.json`.
 
 ## analyze.js
 

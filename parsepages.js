@@ -54,13 +54,6 @@ function continuer()
 			result[keys[i]] = tags[keys[i]];
 
 		fs.writeFileSync('tags.json', JSON.stringify(result, true, 4));
-
-		result = _.map(keys, function(k)
-		{
-			return { tag: k, count: tags[k] };
-		});
-		fs.writeFileSync('dat-ready.json', JSON.stringify(result, true, 4));
-
 		process.exit(0);
 	}
 
