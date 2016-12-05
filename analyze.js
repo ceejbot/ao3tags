@@ -37,10 +37,10 @@ var
 		.help('help')
 		.usage('get a list of tags matching specific criteria')
 		.example('$0 -c 200 -f hurt', 'filter for tags with "hurt" used at least 200 times')
-		.example('$0 -c 3000 -s count', 'show tags used more than 3000 times sorted by usage count')
+		.example('$0 -c 5000 -s count', 'show tags used more than 3000 times sorted by usage count')
+		.example('$0 -c 3000 file.json', 'read some other json file for data (defaults to tags.json)')
 	args = yargs.argv
 ;
-
 
 var source = args._.length ? args._[0] : 'tags.json';
 var tags = JSON.parse(fs.readFileSync(source, 'utf8'));

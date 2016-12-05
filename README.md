@@ -30,8 +30,9 @@ Options:
   --help           Show help                                           [boolean]
 
 Examples:
-  analyze.js -c 200 -f hurt    filter for tags with "hurt" used at least 200 times
-  analyze.js -c 5000 -s count  show tags used more than 5000 times sorted by usage count
+  analyze.js -c 200 -f hurt     filter for tags with "hurt" used at least 200 times
+  analyze.js -c 5000 -s count   show tags used more than 5000 times sorted by usage count
+  analyze.js -c 3000 file.json  read some other json file for data (defaults to tags.json)
 ```
 
 The transform option changes the tags to a no-spaces all-lower-case version with some inconsistencies cleaned up. Needs more work.
