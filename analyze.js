@@ -107,11 +107,14 @@ _.each(keys, function(k)
 	outtags[k] = tags[k];
 });
 
-console.log(keys.length + ' tags matching criteria\n');
 if (args.json)
-	console.log(util.inspect(outtags, {colors: true}));
+{
+	console.error(keys.length + ' tags matching criteria\n');
+	console.log(JSON.stringify(outtags, null, '    '));
+}
 else
 {
+	console.log(keys.length + ' tags matching criteria\n');
 	var results = [];
 	_.each(keys, function(k)
 	{
