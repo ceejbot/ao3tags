@@ -10,6 +10,8 @@ Working data set as of December 4 2016 is checked in here as `tags.json`.
 
 ## fetchtags.js
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ceejbot/ao3tags.svg)](https://greenkeeper.io/)
+
 Fetch the tag listing pages from AO3 for later munging. Fetches one at a time so as to not distress anybody's most robust servers. Because I am lazy, this depends on a pagecount constant to figure out if it's done. Will create a local directory named `./input/` and store files in it.
 
 ## parsepages.js
